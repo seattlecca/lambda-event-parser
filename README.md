@@ -4,6 +4,28 @@
 
 A simple parse tool to just parses the events triggering your AWS Lambda into a common format, so you don't have to worry.
 
+## Setup Instructions
+
+- Install package to your project.
+
+```shell
+npm install lambda-event-parse
+```
+
+or
+
+```shell
+yarn add lambda-event-parse
+```
+
+- Import the package
+
+```javascript
+const parser = require('lambda-event-parse');
+
+parser();
+```
+
 ## The standardized event format
 
 ```javascript
@@ -56,14 +78,13 @@ Let's take another example, an S3 Event:
     {
       s3: {
         object: {
-          key: "HappyFace.jpg",
+          key: 'HappyFace.jpg',
           size: 1024
         }
       }
     }
-  ]
+  ];
 }
-
 ```
 
 will be translated into:
@@ -141,7 +162,8 @@ will be translated into:
 - [x] S3
 - [x] API Gateway (GET, POST, PUT, DELETE, PATCH)
 - [x] DynamoDB Streams (NEW_IMAGE)
-- [ ] SQS
+- [x] SQS
+- [x] Invoke
 - [ ] Other AWS Lambda
 - [ ] CloudWatch
 - [ ] Kinesis DataFirehose
